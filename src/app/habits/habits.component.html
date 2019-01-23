@@ -4,32 +4,10 @@
       <h3>{{ habit.title }}</h3>
     </div>
     <div class="dots">
-      <span class="dot-inactive"></span> <span class="dot-inactive"></span>
-      <span class="dot-inactive"></span> <span class="dot-active"></span>
-      <span class="dot-active"></span> <span class="dot-active"></span>
-      <span class="dot-inactive"></span> <span class="dot-inactive"></span>
-      <span class="dot-inactive"></span> <span class="dot-inactive"></span>
-      <span class="dot-inactive"></span> <span class="dot-inactive"></span>
-      <span class="dot-inactive"></span> <span class="dot-inactive"></span>
-      <span class="dot-inactive"></span> <span class="dot-inactive"></span>
-      <span class="dot-inactive"></span> <span class="dot-inactive"></span>
-      <span class="dot-inactive"></span> <span class="dot-inactive"></span>
-      <span class="dot-inactive"></span> <span class="dot-inactive"></span>
-      <span class="dot-inactive"></span> <span class="dot-inactive"></span>
-      <span class="dot-inactive"></span> <span class="dot-inactive"></span>
-      <span class="dot-inactive"></span> <span class="dot-inactive"></span>
-      <span class="dot-inactive"></span> <span class="dot-inactive"></span>
-      <span class="dot-inactive"></span> <span class="dot-inactive"></span>
-      <span class="dot-inactive"></span> <span class="dot-inactive"></span>
-      <span class="dot-inactive"></span> <span class="dot-inactive"></span>
-      <span class="dot-inactive"></span> <span class="dot-inactive"></span>
-      <span class="dot-inactive"></span> <span class="dot-inactive"></span>
-      <span class="dot-inactive"></span> <span class="dot-inactive"></span>
-      <span class="dot-inactive"></span> <span class="dot-inactive"></span>
-      <span class="dot-inactive"></span> <span class="dot-inactive"></span>
-      <span class="dot-inactive"></span> <span class="dot-inactive"></span>
-      <span class="dot-inactive"></span> <span class="dot-inactive"></span>
-      <span class="dot-inactive"></span> <span class="dot-inactive"></span>
+      <span
+        *ngFor="let i of weeks"
+        [className]="habit.activeWeeks[i + 1] ? 'dot-active' : 'dot-inactive'"
+      ></span>
     </div>
     <div class="check"><button class="check-button">Check!</button></div>
   </div>

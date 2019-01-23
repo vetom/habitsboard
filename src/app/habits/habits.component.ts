@@ -9,6 +9,7 @@ import { HabitsService } from '../habits.service';
 })
 export class HabitsComponent implements OnInit {
   habits: Habit[];
+  weeks: number[] = Array.from(Array(53).keys());
 
   constructor(private habitService: HabitsService) {}
 

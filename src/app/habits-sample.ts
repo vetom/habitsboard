@@ -4,7 +4,12 @@ export const HABITS: Habit[] = [
   {
     id: 1,
     title: 'Practice Soccer',
-    activeDays: [new Date(2019, 0, 2), new Date(2019, 0, 19)],
+    activeDays: [
+      new Date(2019, 0, 2),
+      new Date(2019, 0, 19),
+      new Date(2019, 11, 28),
+      new Date(2019, 11, 31)
+    ],
     activeWeeks: {}
   },
   {

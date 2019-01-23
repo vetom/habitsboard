@@ -26,19 +26,8 @@ export class HabitsService {
             (date.getTimezoneOffset() - newYear.getTimezoneOffset()) * 60000) /
             86400000
         ) + 1;
-      let week: number;
-      if (day < 4) {
-        week = Math.floor((daynum + day - 1) / 7) + 1;
-        if (week > 52) {
-          const nYear: Date = new Date(date.getFullYear() + 1, 0, 1);
-          let nday: number = nYear.getDay();
-          nday = nday >= 0 ? nday : nday + 7;
-          week = nday < 4 ? 1 : 53;
-        }
-      } else {
-        week = Math.floor((daynum + day - 1) / 7);
-      }
-
+      let week: number = Math.floor((daynum + day - 1) / 7) + 1;
+      week = day < 4 ? week + 1 : week;
       weeks[week] = true;
     }
     const habitWithWeeks: Habit = habit;
