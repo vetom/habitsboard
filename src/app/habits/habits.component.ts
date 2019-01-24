@@ -16,6 +16,16 @@ export class HabitsComponent implements OnInit {
   getHabits(): void {
     this.habitService.getHabits().subscribe(habits => (this.habits = habits));
   }
+
+  check(id: number) {
+    for (const habit of this.habits) {
+      if (habit.id === id) {
+        this.habitService.check(id, habit.activeDays);
+        break;
+      }
+    }
+  }
+
   ngOnInit() {
     this.getHabits();
   }

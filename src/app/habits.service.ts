@@ -17,7 +17,6 @@ export class HabitsService {
     this.firebaseAuth.auth.signInAnonymously();
   }
 
-  HABITS: Observable<any[]>;
   private calcWeeks(habits: any): Habit[] {
     const habitsWithWeeks: Habit[] = [];
     for (const habit of habits) {
@@ -52,5 +51,15 @@ export class HabitsService {
       .collection('habits')
       .valueChanges()
       .pipe(map(w => this.calcWeeks(w)));
+  }
+
+  check(id: number, activeDays: string[]): void {
+    const now: string = new Date().toISOString();
+    const activeDaysISO: string[] = activeDays;
+    activeDaysISO.push(now);
+    this.db
+      .collection('habits')
+      .doc(`${id}`)
+      .update({ activeDays: activeDaysISO });
   }
 }
