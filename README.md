@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-First, create a `firebase-config.ts` file inside the src folder with an instance of `Firebase` type (look at the `firebase.ts` file) containing your configuration from firebase.
+First, create a `firebase-config.ts` file inside the `src` folder with an instance of `Firebase` type (look at the `firebase.ts` file) containing your configuration from firebase.
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
