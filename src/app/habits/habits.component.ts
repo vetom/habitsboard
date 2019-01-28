@@ -10,6 +10,7 @@ import { HabitsService } from '../habits.service';
 export class HabitsComponent implements OnInit {
   habits: Habit[];
   weeks: number[] = Array.from(Array(52).keys()).map(f => f + 1);
+  year = new Date().getFullYear();
 
   constructor(private habitService: HabitsService) {}
 
@@ -20,7 +21,7 @@ export class HabitsComponent implements OnInit {
   check(id: number) {
     for (const habit of this.habits) {
       if (habit.id === id) {
-        this.habitService.check(id, habit.activeDays);
+        this.habitService.check(id);
         break;
       }
     }

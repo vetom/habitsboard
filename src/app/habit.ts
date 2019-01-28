@@ -1,6 +1,6 @@
 export class Habit {
   id: number;
   title: string;
-  activeDays: string[];
-  activeWeeks: { [key: number]: boolean };
+  activeWeeks: { [year: number]: { [week: number]: boolean } };
+  activeDays: { [year: number]: { [day: number]: boolean } };
 }

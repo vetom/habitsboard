@@ -7,7 +7,9 @@
       <div class="dots">
         <span
           *ngFor="let i of weeks"
-          [className]="habit.activeWeeks[i + 1] ? 'dot-active' : 'dot-inactive'"
+          [className]="
+            habit.activeWeeks[year][i + 1] ? 'dot-active' : 'dot-inactive'
+          "
         ></span>
       </div>
     </mat-card-content>
