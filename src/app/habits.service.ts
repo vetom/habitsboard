@@ -17,6 +17,16 @@ export class HabitsService {
     this.firebaseAuth.auth.signInAnonymously();
   }
 
+  private getDay(date: Date): number {
+    const start = new Date(date.getFullYear(), 0, 0);
+    const oneDay = 1000 * 60 * 60 * 24;
+    const diff =
+      date.getTime() -
+      start.getTime() +
+      (start.getTimezoneOffset() - date.getTimezoneOffset()) * 60 * 1000;
+    return Math.floor(diff / oneDay);
+  }
+
   private getWeek(date: Date): number {
     const start: Date = new Date(date.getFullYear(), 0, 1);
     let day = start.getDay();
@@ -46,11 +56,15 @@ export class HabitsService {
 
   check(id: number): void {
     const now = new Date();
-    const week = this.getWeek(now);
     const year = now.getFullYear();
+    const day = this.getDay(now);
+    const week = this.getWeek(now);
     this.db
       .collection('habits')
       .doc(`${id}`)
-      .update({ [`activeWeeks.${year}.${week}`]: true });
+      .update({
+        [`activeWeeks.${year}.${week}`]: true,
+        [`activeDays.${year}.${day}`]: true
+      });
   }
 }
