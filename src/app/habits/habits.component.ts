@@ -9,8 +9,9 @@ import { HabitsService } from '../habits.service';
 })
 export class HabitsComponent implements OnInit {
   habits: Habit[];
-  weeks: number[] = Array.from(Array(52).keys()).map(f => f + 1);
-  year = new Date().getFullYear();
+  days: number[] = Array.from(Array(366).keys());
+  weeks: number[] = Array.from(Array(52).keys());
+  year: number = new Date().getFullYear();
 
   constructor(private habitService: HabitsService) {}
 

@@ -1,3 +1,7 @@
+.dots {
+  margin-top: 10px;
+}
+
 .dot-inactive {
   height: 19px;
   width: 19px;
