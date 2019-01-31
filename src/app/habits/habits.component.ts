@@ -11,6 +11,7 @@ export class HabitsComponent implements OnInit {
   habits: Habit[];
   days: number[] = Array.from(Array(366).keys());
   weeks: number[] = Array.from(Array(52).keys());
+  months: number[] = Array.from(Array(12).keys());
   year: number = new Date().getFullYear();
 
   constructor(private habitService: HabitsService) {}

@@ -43,6 +43,10 @@ export class HabitsService {
     return week;
   }
 
+  private getMonth(date: Date): number {
+    return date.getMonth() + 1;
+  }
+
   private parseHabits(data: any): Habit[] {
     return data.map((h: any) => h);
   }
@@ -59,12 +63,14 @@ export class HabitsService {
     const year = now.getFullYear();
     const day = this.getDay(now);
     const week = this.getWeek(now);
+    const month = this.getMonth(now);
     this.db
       .collection('habits')
       .doc(`${id}`)
       .update({
         [`activeWeeks.${year}.${week}`]: true,
-        [`activeDays.${year}.${day}`]: true
+        [`activeDays.${year}.${day}`]: true,
+        [`activeMonths.${year}.${month}`]: true
       });
   }
 }
