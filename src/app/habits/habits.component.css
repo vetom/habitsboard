@@ -13,9 +13,10 @@
 }
 
 .dot-active {
-  height: 25px;
-  width: 25px;
+  height: 19px;
+  width: 19px;
   margin: 2px;
+  border: 3px solid green;
   background-color: #5af55a;
   border-radius: 50%;
   display: inline-block;
