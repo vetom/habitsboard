@@ -1,0 +1,10 @@
+<div class="add-container">
+  <button
+    [@openClose]="isOpen ? 'open' : 'closed'"
+    mat-fab
+    color="primary"
+    (click)="toggle()"
+  >
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

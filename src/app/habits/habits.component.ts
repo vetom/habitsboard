@@ -21,12 +21,7 @@ export class HabitsComponent implements OnInit {
   }
 
   check(id: number) {
-    for (const habit of this.habits) {
-      if (habit.id === id) {
-        this.habitService.check(id);
-        break;
-      }
-    }
+    this.habitService.check(id);
   }
 
   ngOnInit() {

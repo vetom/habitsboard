@@ -13,9 +13,10 @@ import { MaterialModule } from '../material-module';
 import { AppComponent } from './app.component';
 import { HabitsComponent } from './habits/habits.component';
 import { environment } from '../environments/environment';
+import { AddComponent } from './add/add.component';
 
 @NgModule({
-  declarations: [AppComponent, HabitsComponent],
+  declarations: [AppComponent, HabitsComponent, AddComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
