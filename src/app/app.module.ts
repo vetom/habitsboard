@@ -14,11 +14,19 @@ import { AppComponent } from './app.component';
 import { HabitsComponent } from './habits/habits.component';
 import { environment } from '../environments/environment';
 import { AddComponent } from './add/add.component';
+import { AddHabitDialogComponent } from './add-habit-dialog/add-habit-dialog.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, HabitsComponent, AddComponent],
+  declarations: [
+    AppComponent,
+    HabitsComponent,
+    AddComponent,
+    AddHabitDialogComponent
+  ],
   imports: [
     BrowserModule,
+    FormsModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
@@ -27,6 +35,7 @@ import { AddComponent } from './add/add.component';
     MaterialModule
   ],
   providers: [{ provide: FirestoreSettingsToken, useValue: {} }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AddHabitDialogComponent]
 })
 export class AppModule {}

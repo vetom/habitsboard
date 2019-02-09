@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   trigger,
   state,
@@ -6,6 +6,8 @@ import {
   animate,
   transition
 } from '@angular/animations';
+import { MatDialog } from '@angular/material';
+import { AddHabitDialogComponent } from '../add-habit-dialog/add-habit-dialog.component';
 
 @Component({
   selector: 'app-add',
@@ -31,14 +33,20 @@ import {
     ])
   ]
 })
-export class AddComponent implements OnInit {
+export class AddComponent {
   isOpen = false;
+  newHabitTitle: string;
 
-  constructor() {}
-
-  ngOnInit() {}
-
+  constructor(public dialog: MatDialog) {}
   toggle() {
     this.isOpen = !this.isOpen;
+    const dialogRef = this.dialog.open(AddHabitDialogComponent, {
+      data: { title: this.newHabitTitle }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.newHabitTitle = result;
+      this.isOpen = !this.isOpen;
+    });
   }
 }
