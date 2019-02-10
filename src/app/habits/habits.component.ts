@@ -20,7 +20,7 @@ export class HabitsComponent implements OnInit {
     this.habitService.getHabits().subscribe(habits => (this.habits = habits));
   }
 
-  check(id: number) {
+  check(id: string) {
     this.habitService.check(id);
   }
 

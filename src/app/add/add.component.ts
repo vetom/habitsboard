@@ -8,6 +8,7 @@ import {
 } from '@angular/animations';
 import { MatDialog } from '@angular/material';
 import { AddHabitDialogComponent } from '../add-habit-dialog/add-habit-dialog.component';
+import { HabitsService } from '../habits.service';
 
 @Component({
   selector: 'app-add',
@@ -37,15 +38,17 @@ export class AddComponent {
   isOpen = false;
   newHabitTitle: string;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private habitService: HabitsService) {}
   toggle() {
     this.isOpen = !this.isOpen;
     const dialogRef = this.dialog.open(AddHabitDialogComponent, {
+      width: '350px',
       data: { title: this.newHabitTitle }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.newHabitTitle = result;
+      console.log(`try to create ${result}`);
+      this.habitService.add(result);
       this.isOpen = !this.isOpen;
     });
   }

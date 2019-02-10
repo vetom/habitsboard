@@ -58,7 +58,7 @@ export class HabitsService {
       .pipe(map(d => this.parseHabits(d)));
   }
 
-  check(id: number): void {
+  check(id: string): void {
     const now = new Date();
     const year = now.getFullYear();
     const day = this.getDay(now);
@@ -72,5 +72,29 @@ export class HabitsService {
         [`activeDays.${year}.${day}`]: true,
         [`activeMonths.${year}.${month}`]: true
       });
+  }
+
+  add(title: string): void {
+    const now = new Date();
+    let id = '';
+    const year = now.getFullYear();
+    const habit = {
+      title,
+      activeDays: { [year]: {} },
+      activeWeeks: { [year]: {} },
+      activeMonths: { [year]: {} }
+    };
+    this.db
+      .collection('habits')
+      .add(habit)
+      .then(habitRef => {
+        id = habitRef.id;
+      })
+      .then(() =>
+        this.db
+          .collection('habits')
+          .doc(id)
+          .update({ id })
+      );
   }
 }
